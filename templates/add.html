@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+
+{% block nav %}
+{% if 'user' in session %}
+<ul>
+	<li><p>logged in as <strong>{{session['user']}}</strong></p></li>
+	<li><a href="/logout">log out</a></li>
+	<li><a href="/">TODO list</a></li>
+</ul>
+{% else %}
+<ul>
+	<li><a href="/signup">sign up</a></li>
+	<li><a href="/login">log in</a></li>
+	<li><a href="/">TODO list</a></li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div id='make'>
+	<h3>Add a Task</h3>
+	<form role="form" method='POST' action='/add'>
+		<div>
+			<input autocomplete="off" type="text" name="title" placeholder="Title" value="{{title}}" required>
+		</div>
+		<div>
+			<textarea autocomplete="off" type="text" name="description" placeholder="Description" required>{{desc}}</textarea>
+		</div>
+		<div>
+			<input name="deadline" id="deadline" placeholder="deadline (UTC)" value="{{deadline}}" required>
+		</div>
+		{% if error!='' %}
+		<p id='error'>{{error}}</p>
+		{% endif %}
+		<button type="submit">Add to list</button>
+	</form>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="static/flatpickr.js"></script>
+{% endblock %}

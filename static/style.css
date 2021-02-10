@@ -1,0 +1,365 @@
+body{
+	font-family: 'Baloo Tamma 2', cursive;
+	margin: 0;
+	background-color: #021431;
+}
+
+main {
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 100vw;
+	background-color: #051227
+}
+nav ul{
+	text-align: right;
+	margin-right: 30px;
+}
+nav ul li{
+	display: inline;
+}
+
+
+nav ul li a, #add, a#complete, a#delete, .dropTitle{
+	text-align: center;
+	color: #0c0;
+	text-decoration: none;
+	padding-top: 0px;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	transition: all 0.3s;
+}
+
+#addWrapper {
+	margin-bottom: 10px;
+}
+
+a#complete{
+	margin-left: 0;
+}
+
+a#delete {
+	color: #c00;
+}
+
+nav ul li a:hover, #add:hover, a#complete:hover, a#delete:hover, .dropTitle:hover{
+	background-color: #0c0;
+	color: #051227;
+}
+
+a#delete:hover {
+	background-color: #c00;
+}
+
+.form {
+	width: 300px;
+	padding-top: 25px;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 25px;
+	margin: auto;
+	margin-top: 20vh;
+	text-align: center;
+	border-radius: 25px;
+}
+
+.form div{
+	width: 250px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+#login {
+	background-color: #055;
+}
+
+#signup{
+	background-color: #050;
+}
+
+input, button, textarea{
+	width: 240px;
+	height: 40px;
+	padding: 5px;
+	font-size: 25px;
+	border: none;
+	border-radius: 10px;
+}
+
+#signup div input{
+	background-color: #153;
+	color: #7fc;
+}
+
+#signup div input:focus{
+	background-color: #374;
+}
+
+#login div input{
+	background-color: #135;
+	color: #7cf;
+}
+
+#login div input:focus{
+	background-color: #347;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+button{
+	background-color: #092651;
+	color: #0c0;
+}
+
+input:focus, button:focus, textarea:focus{
+	outline: none;
+}
+
+#error{
+	color: #c00;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#notLogged {
+	text-align: center;
+}
+
+p{
+	color: #ccc;
+	font-size: 20px;
+	margin: 0;
+}
+
+p a{
+	color: #0c0;
+	text-decoration: none;
+}
+
+p a:hover{
+	text-decoration: underline;
+}
+
+
+p strong{
+	color: #cc0;
+}
+
+#list, #make {
+	width: 65vw;
+	margin: auto;
+	border-radius: 25px;
+	background-color: #023144;
+	padding: 15px;
+}
+
+
+h1, h3, h4 {
+	text-align: center;
+	font-size: 30px;
+	color: #0cc;
+	margin: 0;
+}
+
+h4 {
+	font-size: 25px;
+	border-top: 5px solid #041e3a;
+	padding-top: 5px;
+	margin-top: 20px;
+	border-radius: 20px;
+}
+
+#make {
+	text-align: center;
+}
+
+#make div input, #make div textarea{
+	width: 95%;
+	font-size: 17.5px;
+	background-color: #021134;
+	margin-bottom: 2px;
+	color: #ccc;
+}
+
+#make div input{
+	height: auto;
+}
+
+
+#make div textarea {
+	height: 150px;
+	resize: none;
+}
+
+#make button{
+	margin-top: 30px;
+}
+
+.flatpickr-calendar{
+	background-color: #133241 !important;
+}
+
+.flatpickr-months .flatpickr-month, .flatpickr-months .flatpickr-next-month{
+	color: #aaa !important;
+	fill: #aaa !important;
+}
+
+.flatpickr-day, span.flatpickr-weekday, .flatpickr-time .flatpickr-time-separator{
+	color: #aaa !important;
+}
+
+.flatpickr-day:hover{
+	background-color: #072534 !important;
+	border: transparent !important;
+}
+
+.flatpickr-day:hover.flatpickr-disabled{
+	background-color: transparent !important;
+}
+
+.flatpickr-monthDropdown-month{
+	background-color: #234653 !important;
+}
+
+.flatpickr-time input:hover, .flatpickr-time .flatpickr-am-pm:hover, .flatpickr-time input:focus, .flatpickr-time .flatpickr-am-pm:focus{
+	background: #45678a !important;
+}
+
+.flatpickr-time input.flatpickr-hour,.flatpickr-time input.flatpickr-minute{
+	color: #bbb;
+}
+
+.flatpickr-disabled{
+	color: transparent !important;
+}
+
+.item {
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+h5 {
+	margin: 0;
+	font-size: 20px;
+	color: #ccc;
+}
+
+h5 strong{
+	color: #cc0;
+}
+
+p{
+	margin:0;
+}
+
+.desc {
+	white-space: pre-line;
+}
+
+.item p.desc{
+	font-size: 12.5px;
+	background-color: rgba(100,100,100,0.25);
+	border-radius: 5px;
+	padding: 5px;
+	display: block;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 5px;
+}
+
+.item p.desc strong{
+	font-size: 15px;
+}
+
+h6 {
+	margin: 0;
+}
+
+.item p.deadline, h6 strong.descriptionTitle{	
+	font-size: 15px;
+}
+
+.item p.deadline strong, h6 strong.descriptionTitle {
+	color: #cc0
+}
+
+#add{
+	display: block;
+	text-align: center;
+	width: calc(100% - 26px);
+	margin: 0;
+	border: 2px solid #0c0;
+}
+
+a#complete {
+	text-align: left;
+}
+
+a#delete{
+	text-align: right;
+}
+
+
+.drop{
+	position: relative;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #055;
+	left: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 5px;
+	margin-top: 5px;
+	min-width: 150%;
+  transition: display 1s;
+}
+
+span.big{
+	background-color: transparent;
+	padding-bottom: 10px;
+}
+
+span.big:hover .dropdown-content{
+  display: block;
+}
+
+.dropdown-content a{
+	display: block;
+	font-size: 17.5px;
+	text-decoration: none;
+	width:100%;
+	padding:0;
+	margin:auto;
+}
+
+.dropdown-content a:hover{
+	background-color: #080;
+	color: #021431;
+	border:none;
+}
+
+a>p{
+	margin:2px;
+}
+
+
+li>p{
+	display: inline;
+	vertical-align: middle;
+}

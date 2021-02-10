@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="https://kit.fontawesome.com/6ddb159fca.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block nav %}
+{% if 'user' in session %}
+<ul>
+	<li><p>logged in as <strong>{{session['user']}}</strong></p></li>
+	<li><a href="/logout">log out</a></li>
+	<li><a href="/">TODO list</a></li>
+</ul>
+{% else %}
+<ul>
+	<li><a href="/signup">sign up</a></li>
+	<li><a href="/login">log in</a></li>
+	<li><a href="/">TODO list</a></li>
+</ul>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% if 'user' in session %}
+
+<div id='loggedIn'>
+	<div id='list'>
+		<h1>Your TODO list</h1>
+		<p id='addWrapper'><a id='add' href='/add'>add a task</a></p>
+
+		<span class="big">
+			<span class="drop">
+				<span class="dropTitle">
+					order <i class="fas fa-angle-down fa-sm"></i>
+				</span>
+				<div class="dropdown-content">
+					<a href="/"><p>deadline</p></a>
+					<a href="?order=new"><p>new</p></a>
+					<a href="?order=old"><p>old</p></a>
+				</div>
+			</span>
+		</span>
+
+		{% for i in tasks %}
+		{% if todo[session['user']][i]['complete'] == False %}
+		<div class='item' style='background-color: {{colours[i]}};'>
+			<h5><strong>Task: </strong>{{i}}</h5>
+			<h6><strong class='descriptionTitle'>Description: </strong></h6>
+			<p class='desc'>{{todo[session['user']][i]['description']}}</p>
+			<p class='deadline'><strong>Deadline: </strong><code>{{todo[session['user']][i]['deadline']}}</code> (UTC)</p>
+			<div style='width: 100%;margin-top:15px;'>
+				<div style='float: left;width: 50%;'>
+					<a id='complete' href='/complete/{{i}}'>Mark as complete</a>
+				</div>
+				<div style='float: right;width: 50%;text-align:right;'>
+					<a id='delete' href='/delete/{{i}}'>Delete</a>
+				</div>
+			</div>
+			<br>
+		</div>
+		{% endif %}
+		{% endfor %}
+
+		{% if completedTasks %}
+		<h4>Completed Tasks</h4>
+		{% for i in tasks %}
+		{% if todo[session['user']][i]['complete'] == True %}
+		<div class='item' style='background-color: {{colours[i]}};'>
+			<h5><strong>Task: </strong>{{i}}</h5>
+			<h6><strong class='descriptionTitle'>Description: </strong></h6>
+			<p class='desc'>{{todo[session['user']][i]['description']}}</p>
+			<p class='deadline'><strong>Deadline: </strong><code>{{todo[session['user']][i]['deadline']}}</code> (UTC)</p>
+			<div style='width: 100%;margin-top:15px;'>
+				<div style='float: left;width: 50%;'>
+					<a id='complete' href='/complete/{{i}}'>Mark as incomplete</a>
+				</div>
+				<div style='float: right;width: 50%;text-align:right;'>
+					<a id='delete' href='/delete/{{i}}'>Delete</a>
+				</div>
+			</div>
+			<br>
+		</div>
+		{% endif %}
+		{% endfor %}
+		{% endif %}
+	</div>
+</div>
+
+{% else %}
+<div id='notLogged'>
+	<p>You aren't logged in!</p>
+	<p>Log in <a href='/login'>here</a></p>
+	<p>Sign up <a href='/signup'>here</a></p>
+</div>
+{% endif %}
+
+{% endblock %}

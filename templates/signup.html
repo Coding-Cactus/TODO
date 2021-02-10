@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} - sign up{% endblock %}
+
+{% block content %}
+
+<div class='form' id='signup'>
+	<form role="form" method='POST' action='/signup'>
+		<div>
+			<input autocomplete="off" type="text" name="username" placeholder="Enter username" required>
+		</div>
+		<div>
+			<input autocomplete="off" type="password" name="password1" placeholder="Enter password" required>
+		</div>
+		<div>
+			<input autocomplete="off" type="password" name="password2" placeholder="Re-Enter password" required>
+		</div>
+		{% if error!='' %}
+		<p id='error'>{{error}}</p>
+		{% endif %}
+		<button type="submit">Sign up</button>
+	</form>
+</div>
+
+{% endblock %}

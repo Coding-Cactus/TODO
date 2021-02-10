@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} - log in{% endblock %}
+
+{% block content %}
+
+<div class='form' id='login'>
+	<form role="form" method='POST' action='/login'>
+		<div>
+			<input autocomplete="off" type="text" name="username" placeholder="Enter username" required>
+		</div>
+		<div>
+			<input autocomplete="off" type="password" name="password" placeholder="Enter password" required>
+		</div>
+		{% if error!='' %}
+		<p id='error'>{{error}}</p>
+		{% endif %}
+		<button type="submit">Log in</button>
+	</form>
+</div>
+
+{% endblock %}
